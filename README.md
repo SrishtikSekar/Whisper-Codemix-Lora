@@ -41,7 +41,7 @@ Traditional full fine-tuning is computationally expensive. This project explores
 - Sampling rate: **16 kHz**
 
 Dataset source:  
-https://huggingface.co/datasets/mozilla-foundation/common_voice_11_0
+https://huggingface.co/datasets/fsicoli/common_voice_19_0
 
 ---
 
