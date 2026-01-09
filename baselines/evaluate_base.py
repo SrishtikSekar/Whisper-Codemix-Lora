@@ -17,9 +17,7 @@ dataset = dataset.cast_column("audio", Audio(sampling_rate=16000))
 
 print("Loading Whisper-small (base)...")
 processor = WhisperProcessor.from_pretrained(
-    "openai/whisper-small",
-    language="Tamil",
-    task="transcribe"
+    "openai/whisper-small"
 )
 
 model = WhisperForConditionalGeneration.from_pretrained(
@@ -28,7 +26,7 @@ model = WhisperForConditionalGeneration.from_pretrained(
 
 # Force Tamil decoding
 forced_ids = processor.get_decoder_prompt_ids(
-    language="tamil",
+    language="ta",
     task="transcribe"
 )
 model.config.forced_decoder_ids = forced_ids
