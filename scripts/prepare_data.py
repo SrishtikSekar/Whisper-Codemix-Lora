@@ -25,7 +25,7 @@ dataset = load_dataset(
 )
 
 samples = []
-
+tamil_normalizer=TamilNormalizer()
 for example in dataset:
     if not example.get("sentence"):
         continue
@@ -33,10 +33,13 @@ for example in dataset:
     audio = example.get("audio")
     if not isinstance(audio, dict) or "path" not in audio:
         continue
-
+    try:
+        normalized_text=TamilNormalizer(example["sentence"])
+    except:
+        normalized_text=example["sentence"]
     samples.append({
         "audio": audio["path"],
-        "text": TamilNormalizer(example["sentence"])
+        "text": normalized_text
     })
 
 print(f"Collected {len(samples)} samples")
